@@ -293,11 +293,11 @@ class _FluidSliderState extends State<FluidSlider>
     final TextStyle defaultStyle = widget.showDecimalValue
         ? Theme.of(context)
             .textTheme
-            .headline5!
+            .headlineSmall!
             .copyWith(fontWeight: FontWeight.bold)
         : Theme.of(context)
             .textTheme
-            .headline6!
+            .titleLarge!
             .copyWith(fontWeight: FontWeight.bold);
 
     return widget.valueTextStyle ?? defaultStyle;
@@ -489,7 +489,10 @@ class _MinMaxLabels extends StatelessWidget {
         child: child ??
             Text(
               '${value.toInt()}',
-              style: textStyle ?? Theme.of(context).accentTextTheme.headline6!,
+              style: textStyle ??
+                  Theme.of(context).textTheme.titleLarge!.copyWith(
+                        color: Theme.of(context).colorScheme.onSecondary,
+                      ),
             ),
       ),
     );
